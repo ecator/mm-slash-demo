@@ -27,20 +27,20 @@ class SlashHandler(HTTPServer.BaseHTTPRequestHandler):
         self.send_response(200)
 
         text=f"""
-        key|value
-        ---|---
-        token|{slashRequst.token}
-        command|{slashRequst.command}
-        text|{slashRequst.text}
-        channel_id|{slashRequst.channelId}
-        channel_name|{slashRequst.channelName}
-        response_url|{slashRequst.responseUrl}
-        team_domain|{slashRequst.teamDomain}
-        team_id|{slashRequst.teamId}
-        trigger_id|{slashRequst.triggerId}
-        user_id|{slashRequst.userId}
-        user_name|{slashRequst.userName}
-        """
+key|value
+---|---
+token|{slashRequst.token}
+command|{slashRequst.command}
+text|{slashRequst.text}
+channel_id|{slashRequst.channelId}
+channel_name|{slashRequst.channelName}
+response_url|{slashRequst.responseUrl}
+team_domain|{slashRequst.teamDomain}
+team_id|{slashRequst.teamId}
+trigger_id|{slashRequst.triggerId}
+user_id|{slashRequst.userId}
+user_name|{slashRequst.userName}
+"""
         slashResponse=slash.SlashResponse(text=text,responseType=slash.ResponseType.IN_CHANNEL)
         responseJson = slashResponse.json().encode("utf-8")
 
