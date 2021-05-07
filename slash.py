@@ -7,7 +7,7 @@ from enum import Enum
 import json
 
 
-class SlashRequst:
+class SlashRequest:
     """
     处理Slash请求
     """

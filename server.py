@@ -22,24 +22,24 @@ class SlashHandler(HTTPServer.BaseHTTPRequestHandler):
         if authorization:
             token = split(" ", authorization)[1]
         requestData = parse_qs(self.rfile.read(length).decode("utf-8"))
-        slashRequst = slash.SlashRequst(token,requestData)
+        slashRequest = slash.SlashRequest(token,requestData)
 
         self.send_response(200)
 
         text=f"""
 key|value
 ---|---
-token|{slashRequst.token}
-command|{slashRequst.command}
-text|{slashRequst.text}
-channel_id|{slashRequst.channelId}
-channel_name|{slashRequst.channelName}
-response_url|{slashRequst.responseUrl}
-team_domain|{slashRequst.teamDomain}
-team_id|{slashRequst.teamId}
-trigger_id|{slashRequst.triggerId}
-user_id|{slashRequst.userId}
-user_name|{slashRequst.userName}
+token|{slashRequest.token}
+command|{slashRequest.command}
+text|{slashRequest.text}
+channel_id|{slashRequest.channelId}
+channel_name|{slashRequest.channelName}
+response_url|{slashRequest.responseUrl}
+team_domain|{slashRequest.teamDomain}
+team_id|{slashRequest.teamId}
+trigger_id|{slashRequest.triggerId}
+user_id|{slashRequest.userId}
+user_name|{slashRequest.userName}
 """
         slashResponse=slash.SlashResponse(text=text,responseType=slash.ResponseType.IN_CHANNEL)
         responseJson = slashResponse.json().encode("utf-8")
